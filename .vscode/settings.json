@@ -1,0 +1,6 @@
+{
+    "pylint.ignorePatterns": [
+        "--ignore-docstrings",
+        "ignore-docstrings"
+    ]
+}
