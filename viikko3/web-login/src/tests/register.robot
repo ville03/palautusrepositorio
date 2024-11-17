@@ -49,17 +49,50 @@ Register With Username That Is Already In Use
     Submit Credentials
     Register ShouldFail With Message  Username already taken
 
+Login After Successful Registration
+    Set Username  kallek
+    Set Password  kalle123
+    Set Password confirmation  kalle123
+    Submit Credentials
+    Go To Login Page
+    Set Username  kallek
+    Set Password  kalle123
+    Submit Login Credentials
+    Login Should Succeed
+
+Login After Failed Registration
+    Set Username  kallek
+    Set Password  kalle
+    Set Password confirmation  kalle
+    Submit Credentials
+    Go To Login Page
+    Set Username  kallek
+    Set Password  kalle
+    Submit Login Credentials
+    Login ShouldFail With Message  Invalid username or password
+
 *** Keywords ***
 Register Should Succeed
     Welcome Page Should Be Open
+
+Login Should Succeed
+    Main Page Should Be Open
 
 Register Should Fail With Message
     [Arguments]  ${message}
     Register Page Should Be Open
     Page Should Contain  ${message}
 
+Login Should Fail With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
+    Page Should Contain  ${message}
+
 Submit Credentials
     Click Button  Register
+
+Submit Login Credentials
+    Click Button  Login
 
 Set Username
     [Arguments]  ${username}
