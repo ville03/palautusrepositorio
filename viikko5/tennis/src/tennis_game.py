@@ -55,5 +55,3 @@ class TennisGame:
             player2_score = "Forty"
 
         return player1_score + "-" + player2_score
-for i in range(1, 3):
-    print(i)
